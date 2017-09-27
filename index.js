@@ -9,20 +9,25 @@
  * 
  */
 
+var _ = fis.util;
 var coreFile, elementsFile, resourcesFile;
-var corePath = fis.util(__dirname, 'node_modules/vconsole/dist/vconsole.min.js');
-var elementsPath = fis.util(__dirname, 'node_modules/vconsole-elements/dist/vconsole-elements.min.js');
-var resourcesPath = fis.util(__dirname, 'node_modules/vconsole-resources/dist/vconsole-resources.min.js');
+var corePath = _(__dirname, 'node_modules/vconsole/dist/vconsole.min.js');
+var corePathForNpm3 = _(__dirname, '../vconsole/dist/vconsole.min.js');
+var elementsPath = _(__dirname, 'node_modules/vconsole-elements/dist/vconsole-elements.min.js');
+var elementsPathForNpm3 = _(__dirname, '../vconsole-elements/dist/vconsole-elements.min.js');
+var resourcesPath = _(__dirname, 'node_modules/vconsole-resources/dist/vconsole-resources.min.js');
+var resourcesPathForNpm3 = _(__dirname, '../vconsole-resources/dist/vconsole-resources.min.js');
+var isNpm3 = _.isFile(corePathForNpm3);
 
 function init(options) {
     if (!coreFile) {
-        coreFile = fis.util.read(corePath);
+        coreFile = fis.util.read(isNpm3 ? corePathForNpm3 : corePath);
     }
     if (!elementsFile && !(options && options.noElements)) {
-        elementsFile = fis.util.read(elementsPath);
+        elementsFile = fis.util.read(isNpm3 ? elementsPathForNpm3 : elementsPath);
     }
     if (!resourcesFile && !(options && options.noResources)) {
-        resourcesFile = fis.util.read(resourcesPath);
+        resourcesFile = fis.util.read(isNpm3 ? resourcesPathForNpm3 : resourcesPath);
     }
 }
 
