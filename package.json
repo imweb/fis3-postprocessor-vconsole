@@ -1,0 +1,29 @@
+{
+  "name": "fis3-postprocessor-vconsole",
+  "version": "1.0.0",
+  "description": "a plugin of fis3 to insert the vconsole tools",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imweb/fis3-postprocessor-vconsole.git"
+  },
+  "keywords": [
+    "vconsole",
+    "fis",
+    "plugin"
+  ],
+  "author": "long",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/imweb/fis3-postprocessor-vconsole/issues"
+  },
+  "homepage": "https://github.com/imweb/fis3-postprocessor-vconsole#readme",
+  "dependencies": {
+    "vconsole": "^2.5.2",
+    "vconsole-elements": "^1.0.2",
+    "vconsole-resources": "^1.0.0"
+  }
+}
